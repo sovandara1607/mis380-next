@@ -1,12 +1,12 @@
 import { z } from "zod";
 import { publicProcedure, router } from "@/server/trpc";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config({ path: '.env.local' });
 
 // Telegram Bot API function
 async function sendToTelegram(input: {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone?: string;
   subject?: string;
   message: string;
 }) {
@@ -14,16 +14,13 @@ async function sendToTelegram(input: {
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
   if (!botToken || !chatId) {
-    console.warn("Telegram configuration missing. Skipping Telegram notification.");
-    return;
+    console.warn("Telegram configuration missing. Bot Token:", !!botToken, "Chat ID:", !!chatId);
+    throw new Error("Telegram not configured. Please set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in .env.local");
   }
 
   const message = `
 🔔 *New Contact Form Submission*
 
-👤 *Name:* ${input.firstName} ${input.lastName}
-📧 *Email:* ${input.email}
-📱 *Phone:* ${input.phone || 'Not provided'}
 📋 *Subject:* ${input.subject || 'General Inquiry'}
 
 💬 *Message:*
@@ -61,10 +58,6 @@ export const appRouter = router({
     submit: publicProcedure
       .input(
         z.object({
-          firstName: z.string().min(1),
-          lastName: z.string().min(1),
-          email: z.string().email(),
-          phone: z.string().optional().or(z.literal("")),
           subject: z.string().optional(),
           message: z.string().min(1),
         })
