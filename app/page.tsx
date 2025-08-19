@@ -50,7 +50,7 @@ export default function Home() {
               <div className="hero-right">
                 <div className="profile-container">
                   <div className="profile-background"></div>
-                  <img src="/img/profile.jpg" alt="Sovandara Rith" className="profile-img" />
+                  <img src="/img/pf.jpg" alt="Sovandara Rith" className="profile-img" />
                   <div className="profile-badge cs-badge">
                     <i className="fas fa-code"></i>
                     <span>CS Student</span>

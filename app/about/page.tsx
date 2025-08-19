@@ -56,7 +56,7 @@ export default function AboutPage() {
             </div>
             <div className="about-image-section">
               <div className="profile-container">
-                <img src="/img/profile.jpg" alt="Sovandara Rith" className="profile-img" />
+                <img src="/img/pf.jpg" alt="Sovandara Rith" className="profile-img" />
                 <div className="profile-decoration">
                   <div className="decoration-dot dot-1" />
                   <div className="decoration-dot dot-2" />
