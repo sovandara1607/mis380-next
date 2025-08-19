@@ -5,7 +5,7 @@
     }
   },
   "env": {
-    "TELEGRAM_BOT_TOKEN": "7627632594:AAH1PLs-MWZVVmH2pSn76tAslZQ_d7SNrWA",
+    "TELEGRAM_BOT_TOKEN": "@telegram-bot-token",
     "TELEGRAM_CHAT_ID": "@telegram-chat-id"
   }
 }
