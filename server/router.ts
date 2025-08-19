@@ -1,9 +1,10 @@
 import { z } from "zod";
 import { publicProcedure, router } from "@/server/trpc";
-import dotenv from "dotenv";
 
-// Load environment variables
-dotenv.config({ path: '.env.local' });
+// Load environment variables only in development
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config({ path: '.env.local' });
+}
 
 // Telegram Bot API function
 async function sendToTelegram(input: {

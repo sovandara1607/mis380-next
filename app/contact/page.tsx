@@ -24,7 +24,8 @@ export default function ContactPage() {
     } catch (error) {
       setStatus(null);
       console.error("Contact form error:", error);
-      alert(`Failed to send message: ${error.message}. Check console for details.`);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      alert(`Failed to send message: ${errorMessage}. Check console for details.`);
     }
   }
 
