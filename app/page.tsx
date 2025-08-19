@@ -41,7 +41,7 @@ export default function Home() {
                     <span>Get in Touch</span>
                     <i className="fas fa-arrow-right"></i>
                   </a>
-                  <a href="#casestudy" className="btn btn-secondary">
+                  <a href="/casestudy" className="btn btn-secondary">
                     <span>View Projects</span>
                     <i className="fas fa-external-link-alt"></i>
                   </a>
@@ -89,13 +89,13 @@ export default function Home() {
                 </div>
                 <div className="card-meta">
                   <span className="duration">2024 - Present</span>
-                  <span className="type">Leadership</span>
+                  <span className="type">Student Council - CS Representative</span>
                 </div>
               </div>
               <h3>CS Representative</h3>
               <p className="experience-role">Student Council</p>
               <p className="experience-description">
-                Representing Computer Science students in Student Council, advocating for
+                Representing Computer Science students in Student Council at Paragon International University, advocating for
                 student needs and fostering collaborative academic environment.
               </p>
               <div className="experience-tags">
@@ -240,7 +240,6 @@ export default function Home() {
                   <span className="tech-tag">Figma</span>
                   <span className="tech-tag">UI/UX</span>
                   <span className="tech-tag">Prototyping</span>
-                  <span className="tech-tag">Interaction Design</span>
                 </div>
               </div>
             </div>

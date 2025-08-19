@@ -1,4 +1,26 @@
+"use client";
+
+import { useState } from "react";
+
 export default function AboutPage() {
+  const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+
+  const toggleSkills = () => {
+    setIsSkillsOpen(prev => !prev);
+  };
+
+  const skills = [
+    { name: "Next.js", icon: "fab fa-react" },
+    { name: "React Native", icon: "fab fa-react" },
+    { name: "TypeScript", icon: "fab fa-js-square" },
+    { name: "Node.js", icon: "fab fa-node-js" },
+    { name: "Java", icon: "fab fa-java" },
+    { name: "Python", icon: "fab fa-python" },
+    { name: "GitHub", icon: "fab fa-github" },
+    { name: "Figma", icon: "fab fa-figma" },
+    { name: "Docker", icon: "fab fa-docker" }
+  ];
+
   return (
     <>
       {/* Navigation moved to Root layout */}
@@ -13,9 +35,9 @@ export default function AboutPage() {
                   Hello! I am Sovandara
                 </span>
               </div>
-              <h1 className="about-main-title">Passionate Computer Science Student & UX Designer</h1>
+              <h1 className="about-main-title">Passionate Computer Science Student </h1>
               <p className="about-subtitle">
-                Creating meaningful digital experiences through user-centered design and innovative technology solutions.
+                I have interest in Software Engineering and Software Development.
               </p>
               <div className="about-stats">
                 <div className="stat-item">
@@ -79,14 +101,14 @@ export default function AboutPage() {
                     <i className="fas fa-code" />
                     <div>
                       <h4>Focus Areas</h4>
-                      <p>Software Engineering & UX Design</p>
+                      <p>Software Engineering & Software Development</p>
                     </div>
                   </div>
                   <div className="highlight-item">
                     <i className="fas fa-lightbulb" />
                     <div>
                       <h4>Passion</h4>
-                      <p>Creating User-Centered Solutions</p>
+                      <p>Solving Real-World Problems, Building Innovative Solutions, and Learning New Technologies while having fun building apps from scratch.</p>
                     </div>
                   </div>
                 </div>
@@ -118,28 +140,62 @@ export default function AboutPage() {
           <div className="hci-content">
             <div className="hci-text">
               <span className="section-badge">My Passion</span>
-              <h2 className="hci-title">Human-Computer Interaction</h2>
+              <h2 className="hci-title">Developing <br />Web/Mobile Applications</h2>
               <p className="hci-description">
-                My interest in Human-Computer Interaction stems from my passion for creating technology that truly serves users.
+              I enjoy figuring out how things work and solving complex problems.
               </p>
               <p className="hci-description">
-                Through my studies in HCI and UX design, I&apos;ve developed a deep appreciation for user-centered design principles.
+              I like creating something from nothing—apps, websites, and more.
               </p>
-              <div className="hci-features">
-                <div className="feature-item"><i className="fas fa-eye" /><span>User Research & Analysis</span></div>
-                <div className="feature-item"><i className="fas fa-palette" /><span>Interface Design</span></div>
-                <div className="feature-item"><i className="fas fa-mobile-alt" /><span>Responsive Design</span></div>
-                <div className="feature-item"><i className="fas fa-chart-line" /><span>Usability Testing</span></div>
+              <div className="relative inline-block text-left">
+                <button 
+                  onClick={toggleSkills}
+                  className="skills-toggle"
+                >
+                  <div className="toggle-content">
+                    <i className="fas fa-code toggle-icon" />
+                    <span>My Tech Stack</span>
+                  </div>
+                  <i className={`fas fa-chevron-down chevron-icon ${isSkillsOpen ? 'rotated' : ''}`} />
+                </button>
+
+                {isSkillsOpen && (
+                  <>
+                    <div className="floating-backdrop" onClick={toggleSkills} />
+                    <div className="skills-dropdown-menu">
+                      <div className="floating-header">
+                        <div className="floating-title">
+                          <i className="fas fa-code" />
+                          <span>My Tech Stack</span>
+                        </div>
+                        <button className="floating-close" onClick={toggleSkills}>
+                          <i className="fas fa-times" />
+                        </button>
+                      </div>
+                      <ul className="skills-list">
+                        {skills.map((skill, index) => (
+                                                  <li 
+                          key={index} 
+                          className="skill-item"
+                        >
+                          <i className={skill.icon} />
+                          <span>{skill.name}</span>
+                        </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
             <div className="hci-visual">
               <div className="hci-graphic">
                 <div className="graphic-element element-1" />
                 <div className="graphic-element element-2" />
-                <div className="graphic-element element-3" />
+                {/* <div className="graphic-element element-3" /> */}
                 <div className="graphic-center">
-                  <i className="fas fa-heart" />
-                  <span>User-Centered</span>
+                  <i className="fas fa-code" />
+                  <span>Web/Mobile Applications</span>
                 </div>
               </div>
             </div>
